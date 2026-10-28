@@ -1,0 +1,12 @@
+{
+  "base": "https://raw.githubusercontent.com/GAMER123TOP/Binders_RP_Roblox/refs/heads/KPK/",
+  "tabs": ["УК", "КоАП", "ФЗОП", "УПК", "Конституция", "ПДД"],
+  "files": {
+    "УК": "uk.txt",
+    "КоАП": "koap.txt",
+    "ФЗОП": "fzop.txt",
+    "УПК": "upk.txt",
+    "Конституция": "kons.txt",
+    "ПДД": "pdd.txt"
+  }
+}
