@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#FF8C00">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>RP Helper</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ===== ЭКРАН АВТОРИЗАЦИИ ===== -->
+    <section id="screen-auth" class="screen active">
+      <div class="auth-header">
+        <div class="logo">🎃</div>
+        <h1>RP Helper</h1>
+        <p class="dim">Войдите или создайте аккаунт</p>
+      </div>
+      <div class="tabs-auth">
+        <button data-mode="login" class="active">Вход</button>
+        <button data-mode="register">Регистрация</button>
+      </div>
+      <form id="auth-form" class="form" autocomplete="on">
+        <label for="auth-login">Логин</label>
+        <input type="text" id="auth-login" placeholder="3-20 символов: буквы, цифры, _" autocomplete="username" autocapitalize="off">
+
+        <label for="auth-pass">Пароль</label>
+        <input type="password" id="auth-pass" placeholder="минимум 4 символа" autocomplete="current-password">
+
+        <label for="auth-pass2" id="pass2-wrap" class="hidden">Повторите пароль</label>
+        <input type="password" id="auth-pass2" class="hidden" autocomplete="new-password">
+
+        <div id="auth-msg" class="msg"></div>
+        <button type="submit" id="auth-submit" class="btn-primary">Войти</button>
+      </form>
+    </section>
+
+    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+    <section id="screen-main" class="screen">
+      <header class="topbar">
+        <div class="avatar" id="main-avatar" title="Профиль">🎃</div>
+        <input type="search" id="search" placeholder="Статья или преступление" autocomplete="off">
+        <button id="btn-players" title="Поиск игроков">🔍</button>
+        <button id="btn-bookmarks" title="Закладки">⭐</button>
+        <button id="btn-history" title="История">🕐</button>
+        <button id="btn-settings" title="Настройки">⚙️</button>
+      </header>
+
+      <nav class="tabs" id="tabs"></nav>
+      <div id="results" class="results">
+        <div class="hint">🎃 Три действия — и всё под рукой<br><br>
+          <b>Поиск:</b> введи статью («158») или слово («кража»)<br>
+          <b>Табы:</b> переключай кодекс<br>
+          <b>Enter:</b> задать вопрос ИИ
+        </div>
+      </div>
+      <footer class="footer" id="footer"></footer>
+    </section>
+
+    <!-- ===== ПРОФИЛЬ ===== -->
+    <section id="screen-profile" class="screen">
+      <header class="topbar">
+        <button class="back" data-nav="main">←</button>
+        <h2>Профиль</h2>
+        <span></span>
+      </header>
+      <div id="profile-content" class="profile-content"></div>
+    </section>
+
+    <!-- ===== ПОИСК ИГРОКОВ ===== -->
+    <section id="screen-players" class="screen">
+      <header class="topbar">
+        <button class="back" data-nav="main">←</button>
+        <h2>Поиск игроков</h2>
+        <button id="btn-refresh-players">🔄</button>
+      </header>
+      <div class="search-wrap">
+        <input type="search" id="player-search" placeholder="Ник или логин">
+      </div>
+      <div id="player-list" class="list"></div>
+    </section>
+
+    <!-- ===== АДМИН-ПАНЕЛЬ ===== -->
+    <section id="screen-admin" class="screen">
+      <header class="topbar">
+        <button class="back" data-nav="main">←</button>
+        <h2>Админ-панель</h2>
+        <button id="btn-admin-logout">⎋</button>
+      </header>
+      <div id="admin-content" class="admin-content"></div>
+    </section>
+
+    <!-- ===== ЗАКЛАДКИ ===== -->
+    <section id="screen-bookmarks" class="screen">
+      <header class="topbar">
+        <button class="back" data-nav="main">←</button>
+        <h2>Закладки</h2>
+        <button id="btn-clear-bookmarks">🗑</button>
+      </header>
+      <div id="bookmarks-list" class="list"></div>
+    </section>
+
+    <!-- ===== ИСТОРИЯ ===== -->
+    <section id="screen-history" class="screen">
+      <header class="topbar">
+        <button class="back" data-nav="main">←</button>
+        <h2>История</h2>
+        <button id="btn-clear-history">🗑</button>
+      </header>
+      <div id="history-list" class="list"></div>
+    </section>
+
+    <!-- ===== НАСТРОЙКИ ===== -->
+    <section id="screen-settings" class="screen">
+      <header class="topbar">
+        <button class="back" data-nav="main">←</button>
+        <h2>Настройки</h2>
+        <span></span>
+      </header>
+      <div id="settings-content" class="settings-content"></div>
+    </section>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
